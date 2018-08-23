@@ -15,6 +15,34 @@
   {% endif %}
 {% endblock %}
 
+{% block pre_primary %}
+  <div class="span12">
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="fa fa-lock"></i>
+        {{ _('Private') }}
+      </span>
+    {% endif %}
+    <h1>
+      {% block page_heading %}
+        {{ h.dataset_display_name(pkg) }} 
+        {% if pkg.state.startswith('draft') %}
+          [{{ _('Draft') }}]
+        {% endif %}
+        {% if pkg.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      {% endblock %}
+    </h1>
+    {% block organization_link %}
+      {% if pkg.organization %}
+        {% set org = h.get_organization(pkg.organization.name) %}      
+        {% snippet "snippets/organization_link.html", organization=org, has_context_title=true %}
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
 {% block content_primary_nav %}
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
