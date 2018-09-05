@@ -579,6 +579,21 @@ p.filter-list span span.pill {
   border: none;
   box-shadow: none;
 }
+.media-item {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #dddddd;
+}
+.media-item:last-child {
+  border-bottom: none;
+}
+.media-image {
+  float: left;
+  margin-right: 20px;
+}
+.media-view {
+  border: none;
+}
 /* =====================================================
    CKAN label enforcement - TODO: replace labels with ontario.ca styling
    ===================================================== */
