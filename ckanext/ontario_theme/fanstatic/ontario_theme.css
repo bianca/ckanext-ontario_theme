@@ -231,6 +231,13 @@ a.card:hover {
   text-align: center;
   vertical-align: middle;
 }
+#dataset-search-form {
+  margin: 0px 0px 20px 0px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+}
 .hero .container {
   display: inline-block;
   line-height: 1.5;
