@@ -606,7 +606,20 @@ li.resource-item > div {
   margin: 40px 0px;
   background: #fafafa;
   padding: 20px 5px;
-  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  li.resource-item {
+    float: left;
+    width: 100%;
+  }
+  li.resource-item > div {
+    right: 0px;
+    position: relative;
+  }
+  li.resource-item > div a {
+    float: right;
+    margin: 2px;
+  }
 }
 /* =====================================================
    CKAN label enforcement - TODO: replace labels with ontario.ca styling

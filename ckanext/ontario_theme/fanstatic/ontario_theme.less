@@ -455,7 +455,21 @@ li.resource-item>div {
   margin: 40px 0px;
   background: #fafafa;
   padding: 20px 5px;
-  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  li.resource-item {
+    float: left;
+    width: 100%;
+    &>div {
+      //float: right;
+      right: 0px;
+      position: relative;
+      a {
+        float: right;
+        margin: 2px;
+      }
+    }
+  }
 }
 
 /* =====================================================
