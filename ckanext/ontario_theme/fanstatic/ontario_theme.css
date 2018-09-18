@@ -890,6 +890,9 @@ table.table tbody tr td {
 .media-grid {
   border: none;
 }
+.margin-bottom {
+  margin-bottom: 30px;
+}
 /* =====================================================
    Footer
    ===================================================== */
