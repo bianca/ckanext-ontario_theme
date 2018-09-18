@@ -1,0 +1,6 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon('user_datasets', _('Datasets'), id=user.name) }}
+  {{ h.build_nav_icon('user_news_feed', _('News Feed'), id=user.name) }}
+{% endblock %}

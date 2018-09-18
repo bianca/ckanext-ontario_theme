@@ -1,0 +1,8 @@
+{% extends "user/read.html" %}
+
+{% block subtitle %}{{ _('News Feed') }} - {{ super() }}{% endblock %}
+
+{% block primary_content_inner %}
+  <h2 class="hide-heading">{% block page_heading %}{{ _('News Feed') }}{% endblock %}</h2>
+    {% snippet 'user/snippets/news_feed.html', context=c.dashboard_activity_stream_context, followees=c.followee_list %}
+{% endblock %}

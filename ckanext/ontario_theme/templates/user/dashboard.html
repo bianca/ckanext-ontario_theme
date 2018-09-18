@@ -14,3 +14,6 @@
   </header>
 {% endblock %}
 
+{% block primary_content_inner %}
+  {% snippet 'user/snippets/news_feed.html', context=c.dashboard_activity_stream_context, followees=c.followee_list %}
+{% endblock %}
