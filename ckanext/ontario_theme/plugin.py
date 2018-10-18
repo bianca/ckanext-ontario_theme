@@ -1,6 +1,8 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-<<<<<<< HEAD
+from ckanext.ontario_theme import helpers
+from ckantoolkit import h
+
 from ckan.common import config
 
 from flask import Blueprint, make_response
@@ -203,17 +205,10 @@ def get_license(license_id):
 class OntarioThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
-=======
-from ckanext.ontario_theme import helpers
-from ckantoolkit import h
-class OntarioThemePlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IRoutes, inherit=True)
-    plugins.implements(plugins.ITemplateHelpers)
->>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
 
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
@@ -227,7 +222,7 @@ class OntarioThemePlugin(plugins.SingletonPlugin):
     # ITemplateHelpers
 
     def get_helpers(self):
-        return {'ontario_theme_get_license': get_license}
+        return {'ontario_theme_get_license': get_license, 'get_facet_title' : helpers['get_facet_title']}
 
     # IBlueprint
 
@@ -244,18 +239,10 @@ class OntarioThemePlugin(plugins.SingletonPlugin):
         ]
         for rule in rules:
             blueprint.add_url_rule(*rule)
-
-<<<<<<< HEAD
         return blueprint
-=======
+
     @staticmethod
     def before_map(map):
         map.connect('user_news_feed', '/user/news_feed/{id}', controller='ckanext.ontario_theme.controller:CustomUserController',
                   action='news_feed', ckan_icon='clock-o')
         return map
-
-    def get_helpers(self):
-        return dict((h, getattr(helpers, h)) for h in [
-            'get_facet_title'
-            ])
->>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
