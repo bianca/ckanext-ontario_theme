@@ -2,7 +2,6 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.ontario_theme import helpers
 from ckantoolkit import h
-<<<<<<< HEAD
 
 from ckan.common import config
 
@@ -203,18 +202,13 @@ def get_license(license_id):
     '''
     return Package.get_license_register().get(license_id)
 
-=======
->>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
 class OntarioThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
-<<<<<<< HEAD
 
     # IConfigurer
-=======
->>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
 
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
@@ -252,11 +246,3 @@ class OntarioThemePlugin(plugins.SingletonPlugin):
         map.connect('user_news_feed', '/user/news_feed/{id}', controller='ckanext.ontario_theme.controller:CustomUserController',
                   action='news_feed', ckan_icon='clock-o')
         return map
-<<<<<<< HEAD
-=======
-
-    def get_helpers(self):
-        return dict((h, getattr(helpers, h)) for h in [
-            'get_facet_title'
-            ])
->>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
