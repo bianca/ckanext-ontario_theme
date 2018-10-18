@@ -28,6 +28,7 @@
   {% endif %}
 {% endblock %}
 
+<<<<<<< HEAD
 {% block header_site_navigation %}
   <nav class="section navigation">
     <ul class="list-inline">
@@ -41,6 +42,14 @@
       {% endblock %}
     </ul>
   </nav>
+=======
+{% block header_site_navigation_tabs %}
+  {{ h.build_nav_main(
+    ('search', _('Find Data')),
+    ('organizations_index', _('Ministries')),
+    ('about', _('About'))
+  ) }}
+>>>>>>> eb2bc85... Task: For uses of 'Organization' that are visible to most users, replace with 'Ministry'
 {% endblock %}
 
 {% block header_site_search %}
