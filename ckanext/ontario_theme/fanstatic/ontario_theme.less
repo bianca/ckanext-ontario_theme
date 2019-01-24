@@ -1,34 +1,73 @@
-@import "smarties.less";
-@import "cards.less";
+@import "colours.less";
+@import "activity.less";
+@import "accessibility.less";
 @import "buttons.less";
+@import "cards.less";
+@import "home_search.less";
+@import "labels.less";
+@import "smarties.less";
 
 /* =====================================================
-   Colby Variables
+   Typography
    ===================================================== */
 
-@primary-colour: #D47500;
-@secondary-colour: #007A7C;
-@grey: #444444;
-@header-grey: #666;
-
-/* =====================================================
-   Generic classes for Colby colours
-   ===================================================== */
-
-.primary-bg {
-  background-color: @primary-colour;
+body {
+  font-size: 16px;
 }
 
-.primary-fg {
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+} 
+
+h3 { 
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 17px
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+a {
+  color: @secondary-colour;
+}
+
+a:hover, a:focus {
   color: @primary-colour;
 }
 
-.secondary-bg {
-  background-color: @secondary-colour;
+p {
+  font-family: inherit;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  text-rendering: optimizeLegibility;
 }
 
-.secondary-fg {
-  color: @secondary-colour;
+/* =====================================================
+   Helpers
+   ===================================================== */
+
+hr.thick {
+  border-top: 4px solid #ededed;
+}
+
+.large {
+  font-size: 40px;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.top-margin {
+  margin-top: 40px;
 }
 
 /* =====================================================
@@ -48,6 +87,7 @@ body,
   background-color: #fff;
   font-family: 'Open Sans';
 }
+
 @media (min-width: 768px) {
   [role=main],
   .main {
@@ -56,20 +96,15 @@ body,
     background-color: transparent;
   }
 }
-@media (min-width: 768px) {
-  .hero {
-    background-image: none;
-    background: linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0.6)), url(/images/backgrounds/richard-balog-647377-unsplash_converted.jpg);
-    background-size: cover, cover;
-    height: auto;
-    background-position: 50% 50%;
-  }
+
+.hero {
+  background-image: none;
+  background: linear-gradient(0deg,rgba(0,0,0,.3),rgba(0,0,0,0.3)), url(/images/backgrounds/richard-balog-647377-unsplash_converted.jpg);
+  background-size: cover, cover;
+  height: auto;
+  background-position: 50% 50%;
 }
-@media (max-width: 768px) {
-  .hero {
-    background-image: none !important;
-  }
-}
+
 .ie8 .hero,
 .ie7 .hero {
   background-image: none;
@@ -700,11 +735,13 @@ div.introduction {
     }
   }
 }
+
 .module-heading {
   border-top: none;
   border-bottom: none;
   background-color: transparent;  
 }
+
 .module-narrow {
   margin: 40px 0px;
   background: #fafafa;
@@ -715,6 +752,7 @@ div.introduction {
     padding-bottom: 0px;
   }  
 }
+
 .well {
   &:before{
     //content: "Topics:";
@@ -730,6 +768,7 @@ div.introduction {
     box-shadow: none;
   }
 }
+
 table.table {
   border: none;
   thead {
@@ -748,6 +787,7 @@ table.table {
     width: 75%;
   }
 }
+
 .media-grid {
   border: none;
 }
@@ -756,96 +796,14 @@ table.table {
 }
 
 /* =====================================================
-   Footer
+   Sub page left panel border removal
    ===================================================== */
 
-footer.site-footer {
-  background: #ededed;
-  position: relative;
-  margin-top: 1em;
-  padding: 2em 0 1.5em;
-  border-top: 1px solid #d9d9d9;
-  color: #4d4d4d; 
-  a, a:visited {
-    color: #4d4d4d;    
-    text-decoration: underline;
-  }
-  label {
-    color: #4d4d4d;   
-  }
-  .nav {
-    margin-bottom: 0rem;
-    overflow: hidden;
-    margin-left: 0rem;
-    padding-left: 0rem;
-    margin-top: 2rem;
-    ul li {
-      float: left;
-      margin-left: 1rem;
-      font-size: 1rem;
-      margin-bottom: .625rem;
-      font-size: 0.9375rem;
-      &:first-child {
-        margin-left: 0rem;
-      } 
-    } 
-  }
-  p.copyright {
-    font-size: 0.9375rem;
-    margin-bottom: 1rem;
-  }
-  div.footer-swoosh {
-    background: url(/images/footer-swoosh-bg.png) repeat-x;
-    display: block;
-    width: 100%;
-    height: 96px; 
-  }
-  div.footer-swoosh--right {
-    background: #ededed url(/images/footer-swoosh.png) no-repeat;
-    display: block;
-    width: 560px;
-    height: 96px;
-    float: right;
-  }
-  .attribution .ckan-footer-logo {
-    background: url(/base/images/ckan-logo-footer_dark.png) no-repeat top left;
+@media (min-width: 768px) {
+  .wrapper:before {
+      border-right: none;
   }
 }
 
-/* =====================================================
-   Accessibility-specific styles
-   ===================================================== */
-
-.accessibly-hidden {
-  left:-999px;
-  position:absolute;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-  z-index:-999;  
-  display: inline;
-}
-.toolbar .home span,
-.simple-input label, 
-.simple-input button,
-.simple-input button span,
-a.skip-main {
-  &:extend(.accessibly-hidden);
-}
-a.skip-main:focus, a.skip-main:active {
-  color: #fff;
-  background-color:#000;
-  left: auto;
-  top: auto;
-  width: 30%;
-  height: auto;
-  overflow:auto;
-  margin: 10px 35%;
-  padding:5px;
-  border-radius: 15px;
-  border:4px solid #fff;
-  text-align:center;
-  font-size:1.2em;
-  z-index:999;
-}
+@import "header.less";
+@import "footer.less";
