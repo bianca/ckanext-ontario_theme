@@ -324,6 +324,11 @@ a.card:hover {
   width: 18rem;
   height: 18rem;
 }
+.alert:not(.alert-success):not(.alert-info):not(.alert-warning):not(.alert-danger) {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
 /* =====================================================
    Typography
    ===================================================== */
