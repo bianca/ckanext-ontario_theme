@@ -11,6 +11,8 @@ from ckan.model import Package
 
 from resource_upload import ResourceUpload
 
+from ckan.common import _, request
+import ckan.lib.helpers as h
 
 def help():
     '''New help page for site.
@@ -211,7 +213,7 @@ class OntarioThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IUploader, inherit=True)
-
+    plugins.implements(plugins.IResourceController, inherit=True)
     # IConfigurer
 
     def update_config(self, config_):
@@ -250,3 +252,8 @@ class OntarioThemePlugin(plugins.SingletonPlugin):
 
     def get_resource_uploader(self, data_dict):
         return ResourceUpload(data_dict)
+
+    def after_create(context, package_dict, okay):
+        save_action = request.params.get('save')
+        if save_action == 'go-metadata':
+            h.flash_success(_('<h4>You\'re done!</h4> Have a look at your changes below and use the Edit button to make any further changes.'), allow_html=True)
