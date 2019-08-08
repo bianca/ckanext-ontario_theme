@@ -265,7 +265,7 @@
       },
       "help_inline" : true,
       "help_text": {
-        "en": "Let others know when they can expect new data. [more information on selecting an update frequency]"
+        "en": "Let others know when they can expect new data."
       }, 
       "preset": "select",
       "validators": "ignore_missing scheming_choices",
@@ -496,7 +496,7 @@
       },
       "help_inline" : true,
       "help_text": {
-        "en": "What is the specific exemption for this collection of resources to not be shared with the public? Refer to [link to ODD] for list of acceptable exemptions"
+        "en": "What is the specific exemption for this collection of resources to not be shared with the public? Refer to Ontario's [Open Data Directive](https://www.ontario.ca/page/ontarios-open-data-directive) for list of acceptable exemptions"
       },
       "classes": ["form-group","col-md-12"],
       "preset": "select",
