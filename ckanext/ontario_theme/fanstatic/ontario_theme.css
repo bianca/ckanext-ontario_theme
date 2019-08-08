@@ -198,6 +198,24 @@ a.card p {
 a.card:hover {
   text-decoration: none;
 }
+.form-group .info-block {
+  font-size: 14px;
+  color: #333;
+}
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+fieldset {
+  width: 100%;
+}
+legend {
+  padding-top: 50px;
+  color: #007a7c;
+  font-weight: 800;
+}
+.controls .form-group:first-child label {
+  font-size: 18px;
+}
 .module.search {
   color: #fff;
 }
