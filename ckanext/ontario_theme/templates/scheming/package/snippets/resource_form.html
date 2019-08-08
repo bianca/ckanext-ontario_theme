@@ -10,9 +10,17 @@
   {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
   {%- for field in schema.resource_fields -%}
     {%- if field.form_snippet is not none -%}
+      {%- if field.fieldset -%}
+        <fieldset>
+          <legend>{{ field.fieldset_name }}</legend>
+          <p>{{ field.fieldset_subtitle }}</p>
+      {%- endif -%}
       {%- snippet 'scheming/snippets/form_field.html',
         field=field, data=data, errors=errors,
-       entity_type='dataset', object_type=dataset_type -%}
+        entity_type='dataset', object_type=dataset_type -%}
+      {%- if (field.fieldset and field.fieldset != 1) or loop.index == loop.length -%}
+        </fieldset>
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
 {% endblock %}
