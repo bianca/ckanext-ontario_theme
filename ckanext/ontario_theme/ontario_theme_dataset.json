@@ -160,6 +160,7 @@
       },
       "preset": "dataset_organization",
       "classes": ["col-md-12","form-group"]
+<<<<<<< HEAD
     },
     {
       "field_name": "maintainer",
@@ -183,7 +184,7 @@
         "fr": "Email du mainteneur"
       },
       "help_inline" : true,
-      "required": true,
+      "required": "true",
       "help_text": {
         "en": "Contact information of a person or organization within the OPS that can be contacted about the resource"
       },
