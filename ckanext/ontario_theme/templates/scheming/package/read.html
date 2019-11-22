@@ -22,7 +22,7 @@
     </div>
   {% endif %}
   <h3>{{ _("Contact") }}</h3>
-  {% set contact_name = h.get_translated(pkg, 'maintainer') %}
+  {% set contact_name = h.get_translated_or_any_language(pkg, 'maintainer') %}
   {% set contact_email = pkg.maintainer_email %} 
   {% if (not contact_name) and (not contact_email) %}
     {% set contact_name = _("Ontario's Open Data Team") %}

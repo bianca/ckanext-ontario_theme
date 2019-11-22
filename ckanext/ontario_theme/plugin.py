@@ -1,4 +1,5 @@
 import ckan.plugins as plugins
+import ckan.lib.i18n as i18n
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 from ckan.common import config
@@ -236,6 +237,22 @@ def get_package_keywords(language='en'):
     return package_top_keywords
 
 
+def get_translated_or_any_language(data_dict, field):
+    language = i18n.get_lang()
+    try:
+        field_value = data_dict[field + u'_translated'][language]
+        if not field_value:
+            try: 
+                field_value = data_dict[field + u'_translated'][('en' if language == "fr" else "fr")]
+            except KeyError:
+                val = data_dict.get(field, '')
+                return _(val) if val and isinstance(val, string_types) else val               
+        return field_value
+    except KeyError:
+        val = data_dict.get(field, '')
+        return _(val) if val and isinstance(val, string_types) else val
+    
+
 def default_locale():
     '''Wrap the ckan default locale in a helper function to access
     in templates.
@@ -297,6 +314,7 @@ class OntarioThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def get_helpers(self):
         return {'ontario_theme_get_license': get_license,
+                'get_translated_or_any_language': get_translated_or_any_language,
                 'extrafields_default_locale': default_locale,
                 'ontario_theme_get_package_keywords': get_package_keywords}
 
