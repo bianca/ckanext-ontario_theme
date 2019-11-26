@@ -27,6 +27,7 @@
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug",
+      "classes": ["form-group","col-md-12"],
       "form_placeholder": "eg. my-dataset"
     },
     {
@@ -611,10 +612,7 @@
       "preset": "resource_url_upload",
       "fieldset": 1,
       "fieldset_name": "Add File",
-      "classes": ["form-group","col-md-12"],
-      "form_attrs": {
-        "class": "col-md-12"
-      }
+      "classes": ["form-group","col-md-12"]
     },
     {
       "field_name": "format",

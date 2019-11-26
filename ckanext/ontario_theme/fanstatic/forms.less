@@ -1,23 +1,63 @@
-.form-group .info-block {
-  font-size: 14px;
-  color: #333;
-}
-.no-margin-bottom {
-  margin-bottom: 0px
-}
-fieldset {
-  width: 100%;
-}
-legend {
-  padding-top: 50px;
-  color: @secondary-colour;
-  font-weight: 800;
-}
-.controls .form-group:first-child label {
-    font-size: 18px;
-}
-.label.control-optional {
-  background-color: #eeeeee;
-  color: #333333;
-  font-size: 60%;
+form {
+  .no-margin-bottom {
+    margin-bottom: 0px;
+  }
+  fieldset {
+    width: 100%;
+    margin-top: 50px;
+    &:first-of-type {
+      margin-top: 0px;
+    }
+    legend {
+      color: #1A1A1A;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0;
+      line-height: 1.5;
+      border-top: 1px solid @secondary-colour;
+      border-bottom: none;
+      padding-top: 20px;
+      margin-top: 50px;
+    }
+  }
+  .controls.row {
+    margin-bottom: 50px;
+    .form-group {
+      margin-bottom: 0px;
+      &:first-child label {
+        color: #222;
+      }
+      label {
+        color: grey;  
+        font-size: 1.1875rem;
+        margin-bottom: 0px;
+        &::after {
+            content: "";
+        }
+        .optional-or-required {
+          font-weight: normal;
+          font-size: 90%;
+        }
+      }
+      &.control-full {
+        padding-left: 15px;
+        padding-right: 15px;
+      }  
+      .info-block {
+        font-size: 14px;
+        color: #333;
+        color: gray;
+        display: inline-block;
+        margin: 0 0 1rem 0;
+        width: 100%;  
+        padding: 0px;
+        .fa-info-circle {
+          display: none;
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
 }

@@ -198,28 +198,66 @@ a.card p {
 a.card:hover {
   text-decoration: none;
 }
-.form-group .info-block {
-  font-size: 14px;
-  color: #333;
-}
-.no-margin-bottom {
+form .no-margin-bottom {
   margin-bottom: 0px;
 }
-fieldset {
+form fieldset {
   width: 100%;
+  margin-top: 50px;
 }
-legend {
-  padding-top: 50px;
-  color: #007a7c;
-  font-weight: 800;
+form fieldset:first-of-type {
+  margin-top: 0px;
 }
-.controls .form-group:first-child label {
-  font-size: 18px;
+form fieldset legend {
+  color: #1A1A1A;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.5;
+  border-top: 1px solid #007A7C;
+  border-bottom: none;
+  padding-top: 20px;
+  margin-top: 50px;
 }
-.label.control-optional {
-  background-color: #eeeeee;
-  color: #333333;
-  font-size: 60%;
+form .controls.row {
+  margin-bottom: 50px;
+}
+form .controls.row .form-group {
+  margin-bottom: 0px;
+}
+form .controls.row .form-group:first-child label {
+  color: #222;
+}
+form .controls.row .form-group label {
+  color: grey;
+  font-size: 1.1875rem;
+  margin-bottom: 0px;
+}
+form .controls.row .form-group label::after {
+  content: "";
+}
+form .controls.row .form-group label .optional-or-required {
+  font-weight: normal;
+  font-size: 90%;
+}
+form .controls.row .form-group.control-full {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+form .controls.row .form-group .info-block {
+  font-size: 14px;
+  color: #333;
+  color: gray;
+  display: inline-block;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  padding: 0px;
+}
+form .controls.row .form-group .info-block .fa-info-circle {
+  display: none;
+}
+form .controls.row .form-group .info-block p {
+  margin: 0;
 }
 .module.search {
   color: #fff;
@@ -585,7 +623,7 @@ table.table tbody tr td.dataset-details {
    ===================================================== */
 .account-masthead {
   background-color: #333;
-  padding-top: 0.5rem;
+  padding-top: .5rem;
   min-height: 64px;
 }
 /* The "bubble" containing the number of new notifications. */
@@ -608,7 +646,7 @@ table.table tbody tr td.dataset-details {
   display: block;
   float: left;
   border-left: none;
-  padding: 0.75rem 0;
+  padding: .75rem 0;
   margin-bottom: 0 !important;
 }
 /* ========================================================================
