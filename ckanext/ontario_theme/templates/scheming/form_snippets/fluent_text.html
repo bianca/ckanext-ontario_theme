@@ -2,6 +2,11 @@
 <div class="form-group col-md-12 no-margin-bottom"> 
   <label style="width: 100%">{{ h.scheming_language_text(field.label) }}</label>
 </div>
+<div class="form-group col-md-12 no-margin-bottom"> 
+{%- snippet 'scheming/form_snippets/fluent_help_text.html',
+      field=field,
+      lang=request.environ.CKAN_LANG -%}
+</div>
 {%- for lang in h.fluent_form_languages(field, entity_type, object_type, schema) -%}
   {% call form.input(
     field.field_name + '-' + lang,
@@ -14,11 +19,6 @@
     classes=['col-md-6']+(['no-margin-bottom'] if field.help_text else []),
     attrs=field.form_attrs if 'form_attrs' in field else {'class': 'form-control'},
     is_required=h.scheming_field_required(field)
-    ) %}
+    ) %}   
   {% endcall %}
 {%- endfor -%}   
-<div class="form-group col-md-12"> 
-{%- snippet 'scheming/form_snippets/fluent_help_text.html',
-      field=field,
-      lang=request.environ.CKAN_LANG -%}
-</div>

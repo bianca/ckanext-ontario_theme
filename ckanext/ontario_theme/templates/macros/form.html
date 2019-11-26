@@ -46,6 +46,7 @@ Example:
 #}
 {% macro checkbox(name, id='', label='', value='', checked=false, placeholder='', error="", classes=[], attrs={}, is_required=false) %}
 {%- set extra_html = caller() if caller -%}
+{{ extra_html }}
 <div class="form-group{{ " " ~ classes | join(" ") }}{% if error %} error{% endif %}">
 <div class="controls">
   <label class="checkbox" for="{{ id or name }}">
@@ -54,7 +55,6 @@ Example:
     {% if is_required %}{{ input_required() }}{% endif %}
     {% if error and error is iterable %}<strong class="error-inline">{{ error|join(', ') }}</strong>{% endif %}
   </label>
-  {{ extra_html }}
 </div>
 </div>
 {% endmacro %}
@@ -275,10 +275,10 @@ options     - A list/tuple of fields to be used as <options>.
   {% macro input_block(for, label="", error="", classes=[], control_classes=[], extra_html="", is_required=false) %}
   <div class="form-group{{ " error" if error }}{{ " " ~ classes | join(' ') }}">
   <label class="control-label" for="{{ for }}">{{ label or _('Custom') }} <span class="optional-or-required">({{ _("Required") if is_required else _("Optional") }})</span></label>
+  {{ extra_html }}
   <div class="controls{{ " " ~ control_classes | join(' ') }}">
   {{ caller() }}
   {% if error and error is iterable %}<span class="error-block">{{ error|join(', ') }}</span>{% endif %}
-  {{ extra_html }}
   </div>
   </div>
   {% endmacro %}
