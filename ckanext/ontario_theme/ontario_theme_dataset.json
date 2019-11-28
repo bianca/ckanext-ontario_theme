@@ -258,6 +258,21 @@
       "classes": ["col-md-12","form-group"]
     },
     {
+      "field_name": "any_detail_updated",
+      "label": {
+        "en": "Last Updated (Any Detail)",
+        "fr": "Dernière mise à jour (tout détail)"
+      },
+      "help_inline" : true,
+      "help_text": {
+        "en": "The last time anything within the metadata and resource was changed. This would be today."
+      },     
+      "preset": "date",
+      "validators": "ignore_missing isodate convert_to_json_if_date",
+      "form_placeholder": "yyyy-mm-dd",
+      "classes": ["col-md-12","form-group"]
+    },
+    {
       "field_name": "update_frequency",
       "label": {
         "en": "Update frequency",
