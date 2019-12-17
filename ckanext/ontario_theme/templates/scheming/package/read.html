@@ -42,12 +42,12 @@
     {% endif %}
   </div>  
   
+  {% snippet "package/snippets/ontario_theme_additional_info.html",
+    pkg=pkg, dataset_type=dataset_type, schema=schema %}
 {% endblock %}
 
 
 {% block package_additional_info %}
-  {% snippet "scheming/package/snippets/additional_info.html",
-    pkg_dict=pkg, dataset_type=dataset_type, schema=schema %}
 {% endblock %}
 
 {% block package_resources %}
