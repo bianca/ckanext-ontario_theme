@@ -667,7 +667,7 @@ msgid "Search datasets"
 msgstr ""
 
 #: ckanext/ontario_theme/templates/home/snippets/search.html:21
-msgid "Popular tags"
+msgid "Popular keywords"
 msgstr ""
 
 #: ckanext/ontario_theme/templates/macros/form.html:126
@@ -787,6 +787,10 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
+#: ckanext/ontario_theme/templates/package/resource_read.html:25
+msgid "Open"
+msgstr "Ouvert"
+
 #: ckanext/ontario_theme/templates/package/search.html:28
 msgid "Relevance"
 msgstr ""
@@ -834,6 +838,10 @@ msgstr ""
 
 #: ckanext/ontario_theme/templates/scheming/form_snippets/_organization_select.html:21
 msgid "No organization"
+msgstr ""
+
+#: ckanext/ontario_theme/templates/scheming/package/read.html:24
+msgid "Contact"
 msgstr ""
 
 #: ckanext/ontario_theme/templates/scheming/package/resource_read.html:5

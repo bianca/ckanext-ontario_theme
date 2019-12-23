@@ -583,6 +583,10 @@ msgid ""
 msgstr "Trouvez une liste des ministères de l'Ontario ici. Cliquez sur un ministère pour voir "
 "ses jeux de données."
 
+#: ckanext/ontario_theme/templates/package/resource_read.html:25
+msgid "Open"
+msgstr "Ouvert"
+
 #: ckanext/ontario_theme/templates/package/search.html:32
 msgid "Recently Created"
 msgstr "Récemment créé"
@@ -590,6 +594,10 @@ msgstr "Récemment créé"
 #: ckanext/ontario_theme/templates/package/search.html:33
 msgid "Datasets with data"
 msgstr "Jeux de données avec données"
+
+#: ckanext/ontario_theme/templates/scheming/package/read.html:24
+msgid "Contact"
+msgstr "Contactez-nous"
 
 #: ckanext/ontario_theme/templates/scheming/package/read.html:25
 msgid "Ontario's Open Data Team"
@@ -2116,5 +2124,7 @@ msgstr "Fournir rétroaction"
 msgid "As we work to develop the catalogue, <a href=\"mailto:opengov@ontario.ca\">tell us what you think</a>."
 msgstr "Au fur et à mesure que nous travaillons à son amélioration le catalogue, nous aimerions savoir ce que <a href=\"mailto:opengov@ontario.ca\">vous en pensez</a>."
 
-
+#: ckanext/ontario_theme/templates/home/snippets/search.html:21
+msgid "Popular keywords"
+msgstr "Mots-clés populaires"
 
