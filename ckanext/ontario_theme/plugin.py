@@ -437,6 +437,15 @@ type data_last_updated
         return num_resources_filter_scrub(search_params)
 
     def after_search(self, search_results, search_params):
+        vpn_url = "https://intra.catalogue.ogo.tbs.gov.on.ca"
+        non_vpn_url = "https://catalogue-ontariogov.msappproxy.net"
+        site_url = config.get('ckan.site_url')      
+        if site_url == non_vpn_url:
+            for package_index, package in enumerate(search_results['results']):
+                for index,resource in enumerate(package['resources']):
+                    if search_results['results'][package_index]['resources'][index]['url'].find(vpn_url) != -1:
+                        search_results['results'][package_index]['resources'][index]['url'] = search_results['results'][package_index]['resources'][index]['url'].replace(vpn_url, non_vpn_url)
+            
         return search_results
 
     def before_index(self, pkg_dict):
@@ -475,6 +484,13 @@ type data_last_updated
         return pkg_dict
 
     def after_show(self, context, pkg_dict):
+        vpn_url = "https://intra.catalogue.ogo.tbs.gov.on.ca"
+        non_vpn_url = "https://catalogue-ontariogov.msappproxy.net"
+        site_url = config.get('ckan.site_url')      
+        if site_url == non_vpn_url:
+            for index,resource in enumerate(pkg_dict['resources']):
+                if pkg_dict['resources'][index]['url'].find(vpn_url) != -1:
+                    pkg_dict['resources'][index]['url'] = pkg_dict['resources'][index]['url'].replace(vpn_url, non_vpn_url)
         return pkg_dict
 
     # IValidators
