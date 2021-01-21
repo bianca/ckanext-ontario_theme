@@ -288,6 +288,24 @@ def get_translated_lang(data_dict, field, specified_language):
     except KeyError:
         return helpers.get_translated(data_dict, field)
 
+def has_locked_group(pkg):
+    for group in pkg['groups']:
+        group_dict = get_group(group['id'])
+        if group_dict.get('lock_group', "false") == "true":
+            return True
+    return False
+
+def package_update_auth(context, data_dict=None):
+    if data_dict: 
+        pkg_id = data_dict['id'] 
+    elif context.get("package"):
+        pkg_id = context.get("package").id
+    pkg_dict = toolkit.get_action('package_show')(context, {'id': pkg_id})
+    if has_locked_group(pkg_dict) or not ckan.logic.auth.update.package_update(
+        context, {'id': pkg_id}
+    ).get("success"):
+        return {'success': False, 'msg': 'This use is not allowed to edit this package'}
+    return {'success': True, 'msg': 'This package is editable.'}
 
 def get_package_keywords(language='en'):
     '''Helper to return a list of the top 3 keywords based on specified
@@ -385,6 +403,7 @@ class OntarioThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IFacets)
     plugins.implements(plugins.IPackageController)
     plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.IAuthFunctions)
 
     # IConfigurer
 
@@ -527,3 +546,8 @@ type data_last_updated
             'ontario_theme_copy_fluent_keywords_to_tags': validators.ontario_theme_copy_fluent_keywords_to_tags,
             'ontario_tag_name_validator': validators.tag_name_validator
        }
+
+    # IAuthFunctions
+
+    def get_auth_functions(self):
+        return {'package_update': package_update_auth}

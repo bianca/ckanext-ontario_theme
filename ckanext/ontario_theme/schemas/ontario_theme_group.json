@@ -40,6 +40,37 @@
       "validators": "ignore_missing unicode remove_whitespace",
       "form_snippet": "ontario_theme_organization_upload.html",
       "classes": ["col-md-12","form-group"]
+    },
+    {
+      "field_name": "lock_group",
+      "label": {
+        "en": "Lock this group from editing?",
+        "fr": "Lock this group from editing?"
+      },
+      "required": true,
+      "help_inline" : true,
+      "help_text": {
+        "en": "Locking this group will make sure the datasets in this group aren't editable."
+      }, 
+      "classes": ["form-group","col-md-12"],
+      "preset": "select",
+      "validators": "default(false) scheming_choices scheming_required",
+      "choices": [
+        {
+          "value": "false",
+          "label": {
+            "en": "No",
+            "fr": "Non"
+          }
+        },
+        {
+          "value": "true",
+          "label": {
+            "en": "Yes",
+            "fr": "Oui"
+          }
+        }
+      ]
     }
   ]
 }
